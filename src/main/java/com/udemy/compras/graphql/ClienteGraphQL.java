@@ -2,6 +2,7 @@ package com.udemy.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,11 +22,15 @@ public class ClienteGraphQL implements GraphQLQueryResolver,GraphQLMutationResol
         return clienteService.findAll();
     }
 
-    public Cliente saveCliente(Long id, String nome, String email) {
-        Cliente c = new Cliente();
-        c.setId(id);
-        c.setNome(nome);
-        c.setEmail(email);
+    public Cliente saveCliente(ClienteInput input) {
+//        Cliente c = new Cliente();
+//        c.setId(input.getId());
+//        c.setNome(input.getNome());
+//        c.setEmail(input.getEmail());
+
+        ModelMapper m = new ModelMapper();
+        Cliente c = m.map(input,Cliente.class);
+
         return clienteService.save(c);
     }
 
