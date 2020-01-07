@@ -1,18 +1,18 @@
 type Cliente {
-    id:ID,
-    nome:String
-    email:String
+    id:ID!,
+    nome:String!
+    email:String!
 }
 
 extend type Query {
-    cliente(id:ID):Cliente
+    cliente(id:ID!):Cliente
 
-    clientes:[Cliente]
+    clientes:[Cliente]!
 }
 
 extend type Mutation {
 
-    saveCliente(id:ID, nome:String, email:String):Cliente
+    saveCliente(id:ID, nome:String!, email:String!):Cliente!
 
-    deleteCliente(id:ID):Boolean
+    deleteCliente(id:ID!):Boolean!
 }
