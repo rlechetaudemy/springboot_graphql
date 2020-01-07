@@ -1,3 +1,7 @@
+drop table if exists compra ;
+drop table if exists produto;
+drop table if exists cliente;
+
 create table cliente (
     id    bigint auto_increment primary key,
     email varchar(255) null,
