@@ -27,8 +27,4 @@ public class Compra {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "produto_id", nullable = true)
     private Produto produto;
-
-
-
 }
-
