@@ -6,7 +6,7 @@ import com.udemy.compras.domain.ClienteService;
 import com.udemy.compras.domain.Compra;
 import com.udemy.compras.domain.CompraService;
 import com.udemy.compras.domain.ProdutoService;
-import com.udemy.compras.graphql.exceptions.DomainException;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,36 +25,26 @@ public class CompraGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     @Autowired
     private ProdutoService produtoService;
 
+    public Compra compra(Long id) {
+        return service.findById(id);
+    }
+
     public List<Compra> getCompras() {
-        return service.getCompras();
+        return service.findAll();
     }
 
-    public Compra saveCompra(Long id, Integer quantidade, String status, Long clienteId, Long produtoId) {
-        Compra c = new Compra();
-        c.setId(id);
-        c.setQuantidade(quantidade);
-        c.setStatus(status);
+    public Compra saveCompra(CompraInput input) {
+        ModelMapper m = new ModelMapper();
+        Compra c = m.map(input,Compra.class);
         c.setData(new Date());
-        c.setCliente(clienteService.getClienteById(clienteId));
-        c.setProduto(produtoService.getProdutoById(produtoId));
+
+        c.setCliente(clienteService.findById(input.getClienteId()));
+        c.setProduto(produtoService.findById(input.getProdutoId()));
 
         return service.save(c);
     }
 
-    public Compra saveCompraV2(CompraInput input) {
-
-        if(!input.getStatus().equals("OK")) {
-            throw new DomainException("Erro de Teste 2");
-        }
-
-        Compra c = new Compra();
-        c.setId(input.getId());
-        c.setQuantidade(input.getQuantidade());
-        c.setStatus(input.getStatus());
-        c.setData(new Date());
-        c.setCliente(clienteService.getClienteById(input.getClienteId()));
-        c.setProduto(produtoService.getProdutoById(input.getProdutoId()));
-
-        return service.save(c);
+    public Boolean deleteCompra(Long id) {
+        return service.deleteById(id);
     }
 }

@@ -26,7 +26,7 @@ public class CompraService {
     }
 
     @Transactional
-    public boolean delete(Long id) {
+    public boolean deleteById(Long id) {
         if(rep.findById(id).isPresent()) {
             rep.deleteById(id);
             return true;

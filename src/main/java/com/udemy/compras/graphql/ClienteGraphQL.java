@@ -14,29 +14,23 @@ import java.util.List;
 public class ClienteGraphQL implements GraphQLQueryResolver,GraphQLMutationResolver {
 
     @Autowired
-    private ClienteService clienteService;
+    private ClienteService service;
 
     public Cliente cliente(Long id) {
-        return clienteService.findById(id);
+        return service.findById(id);
     }
 
     public List<Cliente> clientes() {
-        return clienteService.findAll();
+        return service.findAll();
     }
 
     public Cliente saveCliente(ClienteInput input) {
-//        Cliente c = new Cliente();
-//        c.setId(input.getId());
-//        c.setNome(input.getNome());
-//        c.setEmail(input.getEmail());
-
         ModelMapper m = new ModelMapper();
         Cliente c = m.map(input,Cliente.class);
-
-        return clienteService.save(c);
+        return service.save(c);
     }
 
     public Boolean deleteCliente(Long id) {
-        return clienteService.deleteById(id);
+        return service.deleteById(id);
     }
 }
