@@ -8,4 +8,8 @@ type Query {
     hello:String
 
     soma(a:Int, b:Int):Int
+
+    cliente:Cliente
+
+    clientes:[Cliente]
 }
