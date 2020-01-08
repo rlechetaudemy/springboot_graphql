@@ -17,7 +17,7 @@ public class ProdutoGraphQL implements GraphQLQueryResolver {
     @Autowired
     private ProdutoService service;
 
-    public Produto cliente(Long id) {
+    public Produto produto(Long id) {
         return service.findById(id);
     }
 
