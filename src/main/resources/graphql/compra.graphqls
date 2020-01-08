@@ -1,10 +1,8 @@
-scalar Date
-
 type Compra {
     id: ID!
     quantidade: Int!,
     status: String!,
-    data: Date,
+#    data: Date,
     cliente: Cliente,
     produto: Produto!
 }

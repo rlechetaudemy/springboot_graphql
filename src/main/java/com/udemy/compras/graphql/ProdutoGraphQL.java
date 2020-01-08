@@ -1,5 +1,6 @@
 package com.udemy.compras.graphql;
 
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.udemy.compras.domain.Cliente;
 import com.udemy.compras.domain.Produto;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ProdutoGraphQL implements GraphQLQueryResolver {
+public class ProdutoGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
     @Autowired
     private ProdutoService service;
