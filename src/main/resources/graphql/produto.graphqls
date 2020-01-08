@@ -1,7 +1,7 @@
 type Produto {
     id: ID!
     nome: String!,
-    valor: Float!,
+    valor: Float!
 }
 
 input ProdutoInput {
