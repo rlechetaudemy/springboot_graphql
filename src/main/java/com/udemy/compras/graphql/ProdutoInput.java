@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-public class ClienteInput {
+public class ProdutoInput {
 
     private Long id;
     private String nome;
-    private String email;
-
+    private double valor;
 }

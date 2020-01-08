@@ -1,0 +1,27 @@
+scalar Date
+
+type Compra {
+    id: ID!
+    quantidade: Int!,
+    status: String!,
+    data: Date,
+    cliente: Cliente,
+    produto: Produto!
+}
+
+input CompraInput {
+    id: ID
+    quantidade: Int!,
+    status: String!,
+    clienteId: Int!,
+    produtoId: Int!
+}
+
+extend type Query {
+    compras: [Compra]
+}
+
+extend type Mutation {
+    saveCompra(id: ID, quantidade: Int!, status: String!, clienteId: ID!,produtoId: ID! ):Compra
+    saveCompraV2(input: CompraInput! ):Compra
+}

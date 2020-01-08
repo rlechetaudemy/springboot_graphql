@@ -1,0 +1,24 @@
+type Produto {
+    id: ID!
+    nome: String,
+    valor: Float,
+}
+
+input ProdutoInput {
+    id:ID,
+    nome:String!
+    valor: Float,
+}
+
+extend type Query {
+    produto(id:ID!):Produto
+
+    produtos:[Produto]!
+}
+
+extend type Mutation {
+
+    saveProduto(produto:ProdutoInput!):Produto!
+
+    deleteProduto(id:ID!):Boolean!
+}
