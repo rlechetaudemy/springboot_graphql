@@ -36,6 +36,7 @@ public class CompraGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     public Compra saveCompra(CompraInput input) {
         ModelMapper m = new ModelMapper();
         Compra c = m.map(input,Compra.class);
+
         c.setData(new Date());
 
         c.setCliente(clienteService.findById(input.getClienteId()));
