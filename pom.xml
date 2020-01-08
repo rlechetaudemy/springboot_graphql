@@ -89,7 +89,7 @@
 			<artifactId>graphiql-spring-boot-starter</artifactId>
 			<version>5.0.2</version>
 		</dependency>
-		<!-- PlayGround -->
+		<!-- Playground -->
 		<dependency>
 			<groupId>com.graphql-java-kickstart</groupId>
 			<artifactId>playground-spring-boot-starter</artifactId>
