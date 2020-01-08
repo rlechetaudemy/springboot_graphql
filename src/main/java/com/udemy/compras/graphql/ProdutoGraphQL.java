@@ -2,8 +2,6 @@ package com.udemy.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.udemy.compras.domain.Cliente;
-import com.udemy.compras.domain.Produto;
 import com.udemy.compras.domain.Produto;
 import com.udemy.compras.domain.ProdutoService;
 import org.modelmapper.ModelMapper;
