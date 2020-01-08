@@ -1,4 +1,4 @@
-package com.udemy.compras.graphql;
+package com.udemy.compras.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
