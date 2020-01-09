@@ -33,4 +33,8 @@ public class CompraService {
         }
         return false;
     }
+
+    public List<Compra> findAllByCliente(Cliente c) {
+        return rep.findAllByCliente(c);
+    }
 }
