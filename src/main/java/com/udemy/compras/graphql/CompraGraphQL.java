@@ -6,6 +6,7 @@ import com.udemy.compras.domain.ClienteService;
 import com.udemy.compras.domain.Compra;
 import com.udemy.compras.domain.CompraService;
 import com.udemy.compras.domain.ProdutoService;
+import com.udemy.compras.graphql.dto.CompraResumo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,10 @@ public class CompraGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
 
     public List<Compra> getCompras() {
         return service.findAll();
+    }
+
+    public List<CompraResumo> getComprasRelatorio() {
+        return service.findAllComprasRelatorio();
     }
 
     public Compra saveCompra(CompraInput input) {

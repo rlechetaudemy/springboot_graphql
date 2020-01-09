@@ -6,6 +6,13 @@ type Compra {
     produto: Produto!
 }
 
+type CompraRelatorio {
+    compraId : ID!
+    cliente: String!
+    produto: String!
+    quantidade: Int!
+}
+
 input CompraInput {
     id: ID
     quantidade: Int!,
@@ -17,6 +24,7 @@ input CompraInput {
 extend type Query {
     compra(id:ID!):Compra
     compras:[Compra]!
+    comprasRelatorio:[CompraRelatorio]
 }
 
 extend type Mutation {

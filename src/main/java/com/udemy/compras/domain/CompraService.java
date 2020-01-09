@@ -1,5 +1,6 @@
 package com.udemy.compras.domain;
 
+import com.udemy.compras.graphql.dto.CompraResumo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,10 @@ public class CompraService {
     }
 
     public List<Compra> findAllByCliente(Cliente c) {
-        return rep.findAllByCliente(c);
+        return rep.findAllByCliente(c.getId());
+    }
+
+    public List<CompraResumo> findAllComprasRelatorio() {
+        return rep.findAllComprasRelatorio();
     }
 }
