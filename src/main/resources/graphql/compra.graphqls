@@ -2,6 +2,7 @@ type Compra {
     id: ID!
     quantidade: Int!,
     status: String!,
+    data: Date!
     cliente: Cliente,
     produto: Produto!
 }
