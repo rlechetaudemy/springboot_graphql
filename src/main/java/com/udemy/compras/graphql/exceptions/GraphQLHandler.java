@@ -28,6 +28,9 @@ public class GraphQLHandler implements GraphQLErrorHandler {
                 String msg = ex.getMessage();
                 return new SimpleError(msg);
             }
+
+            // Logar o error
+            return new SimpleError("Ocorreu um erro ao processar a transação.");
         } else if (error instanceof ValidationError) {
             String msg = error.getMessage();
             return new SimpleError(msg);
