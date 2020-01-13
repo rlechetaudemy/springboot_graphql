@@ -15,7 +15,7 @@ public class CompraResolver implements GraphQLResolver<Compra> {
     private ProdutoService produtoService;
 
     public String status(Compra c) {
-        return "Teste : " + c.getStatus();
+        return c.getStatus();
     }
 
     public Cliente cliente(Compra c) {
