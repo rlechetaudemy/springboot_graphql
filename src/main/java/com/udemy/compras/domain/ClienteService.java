@@ -1,8 +1,11 @@
 package com.udemy.compras.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.QueryHint;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -15,6 +18,7 @@ public class ClienteService {
         return rep.findById(id).orElse(null);
     }
 
+//    @Cacheable("clientes")
     public List<Cliente> findAll() {
         return rep.findAll();
     }
