@@ -3,7 +3,6 @@ package com.udemy.compras.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 import java.io.Serializable;
